@@ -5,7 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#423752"
+    android:paddingTop="20dp"
     tools:context=".start.StartActivity">
+
+    <TextView
+        android:id="@+id/tv_jump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳过"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentRight="true"/>
 
     <com.example.zhoumohan.luckymorning.common.widget.titanic.TitanicTextView
         android:id="@+id/tv_start"
