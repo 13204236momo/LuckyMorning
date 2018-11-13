@@ -13,15 +13,16 @@ import com.example.zhoumohan.luckymorning.base.BaseFragment;
 
 public class NewsFragment4 extends BaseFragment {
 
-    private View mView;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (mView == null) {
-            mView = inflater.inflate(R.layout.item_vp, null);
-        }
-        ((TextView) mView.findViewById(R.id.txt_vp_item_page)).setText("聊天界面4");
-        return mView;
+    protected int getLayoutResID() {
+        return R.layout.item_vp;
     }
+
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
+
+    }
+
+
 }

@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseActivity;
+import com.example.zhoumohan.luckymorning.community.CommunityMvpFragment;
 import com.example.zhoumohan.luckymorning.main.adapter.MainPagerAdapter;
 import com.example.zhoumohan.luckymorning.util.StatusBarUtils;
 
@@ -22,7 +23,7 @@ public class MainActivity extends BaseActivity {
 
     private NewsFragment newsFragment;
     private NewsFragment1 newsFragment1;
-    private NewsFragment2 newsFragment2;
+    private CommunityMvpFragment newsFragment2;
     private NewsFragment3 newsFragment3;
     private NewsFragment4 newsFragment4;
 
@@ -42,7 +43,7 @@ public class MainActivity extends BaseActivity {
     private void initFragment(){
         newsFragment = new NewsFragment();
         newsFragment1 = new NewsFragment1();
-        newsFragment2 = new NewsFragment2();
+        newsFragment2 = new CommunityMvpFragment();
         newsFragment3 = new NewsFragment3();
         newsFragment4 = new NewsFragment4();
         mFragmentList.add(newsFragment);
