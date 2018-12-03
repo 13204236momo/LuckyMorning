@@ -10,12 +10,11 @@
     </style>
 
     <style name="Widget.MaterialSheetFab.Fab" parent="">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:layout_marginTop">@dimen/fab_spacing</item>
-        <item name="android:layout_marginBottom">@dimen/fab_spacing</item>
-        <item name="android:layout_marginLeft">@dimen/fab_spacing</item>
-        <item name="android:layout_marginRight">@dimen/fab_spacing</item>
+        <item name="android:layout_marginBottom">60dp</item>
+        <item name="android:layout_marginRight">50dp</item>
         <item name="android:elevation" tools:ignore="NewApi">@dimen/fab_elevation</item>
         <item name="android:src">@drawable/ic_add</item>
         <item name="fabSize">normal</item>
