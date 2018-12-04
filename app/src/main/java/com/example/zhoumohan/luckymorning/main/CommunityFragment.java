@@ -8,11 +8,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.common.entity.TabEntity;
+import com.example.zhoumohan.luckymorning.common.widget.Fab;
 import com.example.zhoumohan.luckymorning.community.CommunityDetailMvpFragment;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -34,9 +37,11 @@ public class CommunityFragment extends BaseFragment {
     @BindView(R.id.vp_community)
     ViewPager vpCommunity;
     @BindView(R.id.fab)
-    FloatingActionButton fab;
+    Fab fab;
     @BindView(R.id.overlay)
-    DimOverlayFrameLayout overlay;
+    View overlay;
+    @BindView(R.id.fab_sheet)
+    CardView sheetView;
 
     private String[] mTitles = {"动态", "任务", "关注"};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
