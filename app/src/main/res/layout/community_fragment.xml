@@ -16,70 +16,19 @@
         tl:tl_indicator_width="10dp"
         tl:tl_textsize="14sp" />
 
+    <com.example.zhoumohan.luckymorning.common.widget.FontIconView
+        android:id="@+id/font_release"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/theme_accent"
+        android:text="&#xe631;"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_community"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tl_community" />
-
-    <com.example.zhoumohan.luckymorning.common.widget.Fab
-        android:id="@+id/fab"
-        style="@style/Widget.MaterialSheetFab.Fab"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:backgroundTint="@color/theme_accent" />
-
-    <View
-        android:id="@+id/overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent" />
-
-    <io.codetail.widget.RevealLinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="end|bottom"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/fab_sheet"
-            style="@style/Widget.MaterialSheetFab.Sheet">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/fab_sheet_item_word"
-                    style="@style/TextAppearance.MaterialSheetFab.Sheet.Item"
-                    android:drawableLeft="@drawable/ic_mic_grey600_24dp"
-                    android:drawableStart="@drawable/ic_mic_grey600_24dp"
-                    android:text="录音" />
-
-                <TextView
-                    android:id="@+id/fab_sheet_item_photo"
-                    style="@style/TextAppearance.MaterialSheetFab.Sheet.Item"
-                    android:drawableLeft="@drawable/ic_access_alarms_grey600_24dp"
-                    android:drawableStart="@drawable/ic_access_alarms_grey600_24dp"
-                    android:text="记录r" />
-
-                <TextView
-                    android:id="@+id/fab_sheet_item_audio"
-                    style="@style/TextAppearance.MaterialSheetFab.Sheet.Item"
-                    android:drawableLeft="@drawable/ic_photo_camera_grey600_24dp"
-                    android:drawableStart="@drawable/ic_photo_camera_grey600_24dp"
-                    android:text="照相" />
-
-                <TextView
-                    android:id="@+id/fab_sheet_item_task"
-                    style="@style/TextAppearance.MaterialSheetFab.Sheet.Item"
-                    android:drawableLeft="@drawable/ic_create_grey600_24dp"
-                    android:drawableStart="@drawable/ic_create_grey600_24dp"
-                    android:text="创建" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </io.codetail.widget.RevealLinearLayout>
 </RelativeLayout>

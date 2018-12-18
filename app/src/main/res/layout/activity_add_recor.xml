@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_record"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/tv_day_of_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="28"
+        android:textSize="38sp"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="46dp"/>
+    <TextView
+        android:id="@+id/tv_day_of_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="周一"
+        android:textSize="10sp"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="60dp"/>
+    <TextView
+        android:id="@+id/tv_year_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018/05"
+        android:textSize="10sp"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有人总说已经晚了。实际上，现在就是最好的时光"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="110dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启我的第4篇故事..."
+        android:textSize="12sp"
+        android:layout_below="@+id/tv_mood"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"/>
+
+    <GridView
+        android:id="@+id/gv_item"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:numColumns="4"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
+
+</RelativeLayout>

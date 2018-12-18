@@ -1,5 +1,6 @@
 package com.example.zhoumohan.luckymorning.main;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -16,6 +17,8 @@ import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.common.entity.TabEntity;
 import com.example.zhoumohan.luckymorning.common.widget.Fab;
+import com.example.zhoumohan.luckymorning.common.widget.FontIconView;
+import com.example.zhoumohan.luckymorning.community.AddRecordActivity;
 import com.example.zhoumohan.luckymorning.community.CommunityDetailMvpFragment;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -36,12 +39,9 @@ public class CommunityFragment extends BaseFragment {
     CommonTabLayout tlCommunity;
     @BindView(R.id.vp_community)
     ViewPager vpCommunity;
-    @BindView(R.id.fab)
-    Fab fab;
-    @BindView(R.id.overlay)
-    View overlay;
-    @BindView(R.id.fab_sheet)
-    CardView sheetView;
+
+    @BindView(R.id.font_release)
+    FontIconView fontRelease;
 
     private String[] mTitles = {"动态", "任务", "关注"};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
@@ -51,7 +51,6 @@ public class CommunityFragment extends BaseFragment {
     private NewsFragment4 newsFragment4;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
 
-    private MaterialSheetFab materialSheetFab;
 
 
     @Override
@@ -82,28 +81,18 @@ public class CommunityFragment extends BaseFragment {
 
         tlCommunity.setTabData(mTabEntities);
 
-        int sheetColor = getResources().getColor(R.color.background_card);
-        int fabColor = getResources().getColor(R.color.theme_accent);
-
-        // Create material sheet FAB
-        materialSheetFab = new MaterialSheetFab<>(fab, sheetView, overlay, sheetColor, fabColor);
-
-        // Set material sheet event listener
-        materialSheetFab.setEventListener(new MaterialSheetFabEventListener() {
-            @Override
-            public void onShowSheet() {
-
-            }
-
-            @Override
-            public void onHideSheet() {
-
-            }
-        });
-
-
         initEvent();
 
+    }
+
+    @OnClick({R.id.font_release})
+    void onClick(View view){
+        switch (view.getId()){
+            case R.id.font_release:
+                startActivity(new Intent(getActivity(), AddRecordActivity.class));
+                break;
+
+        }
     }
 
     private void initEvent(){
@@ -139,21 +128,7 @@ public class CommunityFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.fab_sheet_item_word,R.id.fab_sheet_item_photo,R.id.fab_sheet_item_audio,R.id.fab_sheet_item_task})
-    void onClick(View view){
-        switch (view.getId()){
-            case R.id.fab_sheet_item_word:
-                break;
-            case R.id.fab_sheet_item_photo:
-                break;
-            case R.id.fab_sheet_item_audio:
-                break;
-            case R.id.fab_sheet_item_task:
-                break;
 
-        }
-        materialSheetFab.hideSheet();
-    }
 
 
 
