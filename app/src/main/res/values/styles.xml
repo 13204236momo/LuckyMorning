@@ -22,12 +22,16 @@
     </style>
 
     <style name="Widget.MaterialSheetFab.Sheet" parent="">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:layout_marginTop">@dimen/sheet_spacing</item>
-    <item name="android:layout_marginBottom">@dimen/sheet_spacing</item>
-    <item name="android:layout_marginLeft">@dimen/sheet_spacing</item>
-    <item name="android:layout_marginRight">@dimen/sheet_spacing</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/sheet_spacing</item>
+        <item name="android:layout_marginBottom">@dimen/sheet_spacing</item>
+        <item name="android:layout_marginLeft">@dimen/sheet_spacing</item>
+        <item name="android:layout_marginRight">@dimen/sheet_spacing</item>
+        <item name="cardBackgroundColor">@color/background_card</item>
+        <item name="cardElevation">@dimen/fab_sheet_elevation</item>
+        <item name="cardMaxElevation">@dimen/fab_sheet_elevation</item>
+        <item name="contentPadding">-3dp</item>
     </style>
 
     <style name="TextAppearance.MaterialSheetFab.Sheet.Item" parent="">
