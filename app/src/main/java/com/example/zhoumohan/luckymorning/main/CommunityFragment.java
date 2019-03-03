@@ -80,21 +80,21 @@ public class CommunityFragment extends BaseFragment {
         int sheetColor = getResources().getColor(R.color.background_card);
         int fabColor = getResources().getColor(R.color.theme_accent);
 
-        // Create material sheet FAB
-        materialSheetFab = new MaterialSheetFab<>(fab, sheetView, overlay, sheetColor, fabColor);
-
-        // Set material sheet event listener
-        materialSheetFab.setEventListener(new MaterialSheetFabEventListener() {
-            @Override
-            public void onShowSheet() {
-
-            }
-
-            @Override
-            public void onHideSheet() {
-
-            }
-        });
+//        // Create material sheet FAB
+//        materialSheetFab = new MaterialSheetFab<>(fab, sheetView, overlay, sheetColor, fabColor);
+//
+//        // Set material sheet event listener
+//        materialSheetFab.setEventListener(new MaterialSheetFabEventListener() {
+//            @Override
+//            public void onShowSheet() {
+//
+//            }
+//
+//            @Override
+//            public void onHideSheet() {
+//
+//            }
+//        });
 
 
         initEvent();
