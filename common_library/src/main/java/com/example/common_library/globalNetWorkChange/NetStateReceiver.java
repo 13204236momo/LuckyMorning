@@ -58,7 +58,7 @@ public class NetStateReceiver extends BroadcastReceiver {
      *
      * @param netType
      */
-    private void post(NetType netType) {
+    public void post(NetType netType) {
         Set<Object> set = networkList.keySet();
         for (final Object getter : set) {
             //所有注解方法

@@ -42,7 +42,7 @@ public class NetworkManager {
         this.application = application;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ConnectivityManager.NetworkCallback networkCallback = new NetworkCallbackImpl();
+            ConnectivityManager.NetworkCallback networkCallback = new NetworkCallbackImpl(receiver);
             NetworkRequest.Builder builder = new NetworkRequest.Builder();
             NetworkRequest request = builder.build();
             ConnectivityManager connectivityManager = (ConnectivityManager) NetworkManager.getDefault().getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
