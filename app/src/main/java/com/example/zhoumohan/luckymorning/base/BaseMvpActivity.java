@@ -15,7 +15,7 @@ public abstract class BaseMvpActivity<T extends BasePresenter, E extends BaseMod
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+       // getSupportActionBar().hide();
         init();
     }
 
