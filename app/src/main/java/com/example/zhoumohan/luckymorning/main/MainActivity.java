@@ -4,7 +4,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
+import com.example.common_library.globalNetWorkChange.NetChangeObserver;
+import com.example.common_library.globalNetWorkChange.NetType;
+import com.example.common_library.globalNetWorkChange.NetworkManager;
+import com.example.common_library.globalNetWorkChange.utils.Constants;
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseActivity;
 import com.example.zhoumohan.luckymorning.community.CommunityDetailMvpFragment;
@@ -16,7 +21,7 @@ import java.util.List;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements NetChangeObserver{
 
     private ViewPager viewPager;
     private NavigationTabBar navigationTabBar;
@@ -38,7 +43,12 @@ public class MainActivity extends BaseActivity {
 
         initFragment();
         initUI();
+
+        NetworkManager.getDefault().init(getApplication());
+        NetworkManager.getDefault().setListener(this);
     }
+
+
 
     private void initFragment(){
         newsFragment = new CommunityFragment();
@@ -143,5 +153,14 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onConnect(NetType netType) {
+        Log.e(Constants.LOG_TAG,"连接了"+netType.name());
+    }
 
+    @Override
+    public void onDisConnect() {
+        Log.e(Constants.LOG_TAG,"没有网络");
+
+    }
 }
