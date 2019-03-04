@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.common_library.globalNetWorkChange.NetChangeObserver;
 import com.example.common_library.globalNetWorkChange.NetType;
+import com.example.common_library.globalNetWorkChange.Network;
 import com.example.common_library.globalNetWorkChange.NetworkManager;
 import com.example.common_library.globalNetWorkChange.utils.Constants;
 import com.example.zhoumohan.luckymorning.R;
@@ -21,7 +22,7 @@ import java.util.List;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
-public class MainActivity extends BaseActivity implements NetChangeObserver{
+public class MainActivity extends BaseActivity {
 
     private ViewPager viewPager;
     private NavigationTabBar navigationTabBar;
@@ -41,16 +42,16 @@ public class MainActivity extends BaseActivity implements NetChangeObserver{
         super.onCreate(savedInstanceState);
         contentView(R.layout.activity_main);
 
+        //注册
+        NetworkManager.getDefault().register(this);
+
         initFragment();
         initUI();
 
-        NetworkManager.getDefault().init(getApplication());
-        NetworkManager.getDefault().setListener(this);
     }
 
 
-
-    private void initFragment(){
+    private void initFragment() {
         newsFragment = new CommunityFragment();
         newsFragment1 = new NewsFragment1();
         newsFragment2 = new CommunityDetailMvpFragment();
@@ -69,7 +70,7 @@ public class MainActivity extends BaseActivity implements NetChangeObserver{
         navigationTabBar = findBy(R.id.ntb_horizontal);
 
         colors = getResources().getStringArray(R.array.default_preview);
-        viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(),mFragmentList));
+        viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager(), mFragmentList));
 
         models.add(
                 new NavigationTabBar.Model.Builder(
@@ -152,15 +153,30 @@ public class MainActivity extends BaseActivity implements NetChangeObserver{
         }, 500);
     }
 
-
-    @Override
-    public void onConnect(NetType netType) {
-        Log.e(Constants.LOG_TAG,"连接了"+netType.name());
+    @Network(netType = NetType.AUTO)
+    public void network(NetType netType) {
+        switch (netType) {
+            case WIFI:
+                Log.e(Constants.LOG_TAG,"WIFI");
+                break;
+            case CMNET:
+            case CMWAP:
+                //有网络
+                Log.e(Constants.LOG_TAG,"移动数据连接");
+                break;
+            case NONE:
+                //没有网络
+                Log.e(Constants.LOG_TAG,"网络连接失败");
+                break;
+        }
     }
 
     @Override
-    public void onDisConnect() {
-        Log.e(Constants.LOG_TAG,"没有网络");
+    protected void onDestroy() {
+        super.onDestroy();
+        //反注册，解绑
+        NetworkManager.getDefault().unRegister(this);
+        NetworkManager.getDefault().unRegisterAll();
 
     }
 }
