@@ -39,6 +39,8 @@ public class PathEvaluator implements TypeEvaluator<CurvePath> {
 //            Log.e("zhou@","t=" + t);
 //            Log.e("zhou@", "x=" + x);
 //            Log.e("zhou@", "t=" + y);
+            endValue.mX = x;
+            endValue.mY = y;
         }else if(endValue.mOperation == CurvePath.LINE){//直线类型
             //x,y= 起始点坐标 + t*(起始点和终点的距离)
             x = startValue.mX + t*(endValue.mX - startValue.mX);
