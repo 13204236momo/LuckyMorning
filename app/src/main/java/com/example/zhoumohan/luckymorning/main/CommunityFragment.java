@@ -1,5 +1,6 @@
 package com.example.zhoumohan.luckymorning.main;
 
+import android.graphics.Path;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -8,8 +9,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
+import com.example.common_library.animationPath.Point;
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.common.entity.TabEntity;
@@ -20,8 +25,10 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.gordonwong.materialsheetfab.DimOverlayFrameLayout;
 import com.gordonwong.materialsheetfab.MaterialSheetFab;
 import com.gordonwong.materialsheetfab.MaterialSheetFabEventListener;
+import com.example.common_library.animationPath.AnimatorPath;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,12 +103,34 @@ public class CommunityFragment extends BaseFragment {
 //            }
 //        });
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AnimatorPath mPath = new AnimatorPath();
+                mPath.moveTo(0, 0);//起始点
+                //三阶贝塞尔曲线
+                List<Point> points = new ArrayList<>();
+                Point point0 = new Point(0, 0);
+                Point point1 = new Point(-200, 200);
+                Point point2 = new Point(-300, 0);
+                Point point3 = new Point(-400, 100);
+                points.add(point0);
+                points.add(point1);
+                points.add(point2);
+                points.add(point3);
 
+                //mPath.cubicTo(-200, 200, -300, 0, -400, 100);
+                mPath.cubicTo(points);
+                //按照直线+曲线的复杂路径运动
+                //mPath.lineTo(0, 0);
+                mPath.startAnimation(v, 2000, new DecelerateInterpolator());//duration:2000ms
+            }
+        });
         initEvent();
-
     }
 
-    private void initEvent(){
+
+    private void initEvent() {
         vpCommunity.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -134,9 +163,9 @@ public class CommunityFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.fab_sheet_item_word,R.id.fab_sheet_item_photo,R.id.fab_sheet_item_audio,R.id.fab_sheet_item_task})
-    void onClick(View view){
-        switch (view.getId()){
+    @OnClick({R.id.fab_sheet_item_word, R.id.fab_sheet_item_photo, R.id.fab_sheet_item_audio, R.id.fab_sheet_item_task})
+    void onClick(View view) {
+        switch (view.getId()) {
             case R.id.fab_sheet_item_word:
                 break;
             case R.id.fab_sheet_item_photo:
@@ -149,7 +178,6 @@ public class CommunityFragment extends BaseFragment {
         }
         materialSheetFab.hideSheet();
     }
-
 
 
     private class MyPagerAdapter extends FragmentPagerAdapter {

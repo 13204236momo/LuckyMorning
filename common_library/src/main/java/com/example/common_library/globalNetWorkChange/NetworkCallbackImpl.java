@@ -42,7 +42,7 @@ public class NetworkCallbackImpl extends ConnectivityManager.NetworkCallback {
                 Log.e(Constants.LOG_TAG,"网络已变更,类型为WIFI");
                 receiver.post(NetType.WIFI);
 
-            }else {
+            }else if(networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                 Log.e(Constants.LOG_TAG,"网络已变更，类型为移动数据网络");
                 receiver.post(NetType.CMWAP);
             }

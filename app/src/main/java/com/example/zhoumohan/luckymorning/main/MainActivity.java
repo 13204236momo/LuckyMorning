@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
-import com.example.common_library.globalNetWorkChange.NetChangeObserver;
 import com.example.common_library.globalNetWorkChange.NetType;
 import com.example.common_library.globalNetWorkChange.Network;
 import com.example.common_library.globalNetWorkChange.NetworkManager;

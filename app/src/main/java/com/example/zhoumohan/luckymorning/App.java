@@ -12,4 +12,4 @@ public class App extends Application {
 
         NetworkManager.getDefault().init(this);
     }
-}
+            }

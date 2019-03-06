@@ -119,30 +119,39 @@ public class NetStateReceiver extends BroadcastReceiver {
     private List<MethodManager> findAnnotationMethod(Object object) {
         List<MethodManager> managerList = new ArrayList<>();
         Class<?> clazz = object.getClass();
-        Method[] methods = clazz.getMethods();
-        for (Method method : methods) {
-            Network network = method.getAnnotation(Network.class);
-            if (network == null) {
-                continue;
+
+        while (clazz!=null){
+            String name = clazz.getName();
+            if (name.startsWith("java.") || name.startsWith("android.") || name.startsWith("javax.")){
+                break;
             }
+            Method[] methods = clazz.getMethods();
+            for (Method method : methods) {
+                Network network = method.getAnnotation(Network.class);
+                if (network == null) {
+                    continue;
+                }
 
-            //方法返回校验
-            Type returnType = method.getGenericReturnType();
-            if (!"void".equals(returnType.toString())) {
-                throw new RuntimeException(method.getName() + "方法返回必须是void类型");
+                //方法返回校验
+                Type returnType = method.getGenericReturnType();
+                if (!"void".equals(returnType.toString())) {
+                    throw new RuntimeException(method.getName() + "方法返回必须是void类型");
+                }
+
+                //参数校验
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if (parameterTypes.length != 1) {
+                    throw new RuntimeException(method.getName() + "方法只能有一个参数");
+                }
+
+                //过滤上面，得到符合要求的方法，才开始添加到集合
+                MethodManager manager = new MethodManager(parameterTypes[0], network.netType(), method);
+                managerList.add(manager);
+
             }
-
-            //参数校验
-            Class<?>[] parameterTypes = method.getParameterTypes();
-            if (parameterTypes.length != 1) {
-                throw new RuntimeException(method.getName() + "方法只能有一个参数");
-            }
-
-            //过滤上面，得到符合要求的方法，才开始添加到集合
-            MethodManager manager = new MethodManager(parameterTypes[0], network.netType(), method);
-            managerList.add(manager);
-
+            clazz = clazz.getSuperclass();
         }
+
         return managerList;
     }
 
