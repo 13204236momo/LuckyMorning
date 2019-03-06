@@ -21,12 +21,7 @@ public class AnimatorPath {
         curvePathList.add(new CurvePath(CurvePath.MOVE, x, y));
     }
 
-    //三阶贝塞尔曲线
-    public void cubicTo(float c0x, float c0y, float c1x, float c1y, float x, float y) {
-        curvePathList.add(new CurvePath(CurvePath.CUBIC, c0x, c0y, c1x, c1y, x, y));
-    }
-
-    //三阶贝塞尔曲线
+    //多阶贝塞尔曲线
     public void cubicTo(List<Point> points) {
         curvePathList.add(new CurvePath(CurvePath.CUBIC, points));
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 
+import android.os.Build;
 import android.util.Log;
 
 import com.example.common_library.globalNetWorkChange.utils.Constants;
@@ -166,7 +167,9 @@ public class NetStateReceiver extends BroadcastReceiver {
         if (!networkList.isEmpty()) {
             networkList.clear();
         }
-        NetworkManager.getDefault().getApplication().unregisterReceiver(this);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            NetworkManager.getDefault().getApplication().unregisterReceiver(this);
+        }
         networkList = null;
         Log.e(Constants.LOG_TAG, "全部解注册成功");
     }
