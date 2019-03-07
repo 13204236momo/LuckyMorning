@@ -22,8 +22,6 @@ public class CurvePath {
 
     int mOperation;
     float mX,mY;
-    float mControl0X,mControl0Y;
-    float mControl1X,mControl1Y;
 
     public static List<Point> points = new ArrayList<>();
 
@@ -35,15 +33,6 @@ public class CurvePath {
         mY=y;
     }
 
-    public CurvePath(int operation, float c0x, float c0y, float c1x, float c1y, float x, float y) {
-        mOperation = operation;
-        mControl0X = c0x;
-        mControl0Y = c0y;
-        mControl1X = c1x;
-        mControl1Y = c1y;
-        mX = x;
-        mY = y;
-    }
 
     public CurvePath(int operation,List<Point> points){
         mOperation = operation;
