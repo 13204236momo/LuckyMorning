@@ -18,7 +18,7 @@ public class CurvePath {
     /**
      * 贝塞尔曲线
      */
-    public static final int CUBIC=2;
+    public static final int CURVE=2;
 
     int mOperation;
     float mX,mY;
@@ -33,15 +33,16 @@ public class CurvePath {
         mY=y;
     }
 
-
+    /**
+     * 多拐点贝塞尔曲线 （3个拐点及以上，即points传入四个或以上）
+     * @param operation
+     * @param points
+     */
     public CurvePath(int operation,List<Point> points){
         mOperation = operation;
         this.points = points;
-        mX = points.get(points.size()-1).getPointX();
-        mY = points.get(points.size()-1).getPointY();
     }
 
     public CurvePath(){
-
     }
 }

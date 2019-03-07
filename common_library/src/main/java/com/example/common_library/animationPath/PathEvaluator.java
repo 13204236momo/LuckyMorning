@@ -21,7 +21,7 @@ public class PathEvaluator implements TypeEvaluator<CurvePath> {
         //估值计算一波骚操作
         //路径复杂：多种--直线，曲线，起始点赋值
 
-        if(endValue.mOperation == CurvePath.CUBIC){//三阶贝塞尔曲线类型---计算
+        if(endValue.mOperation == CurvePath.CURVE){//三阶贝塞尔曲线类型---计算
             float oneMinusT = 1 - t;
             for (int i = 0 ;i<CurvePath.points.size();i++){
                 x = x + (float) (endValue.points.get(i).getPointX() * (Math.pow(oneMinusT,endValue.points.size()-1 - i)) * Math.pow(t,i)) * a.get(i);

@@ -125,9 +125,10 @@ public class CommunityFragment extends BaseFragment {
                 points.add(point6);
 
                 mPath.cubicTo(points);
-                mPath.cubicTo(points);
+
                 //按照直线+曲线的复杂路径运动
-                //mPath.lineTo(0, 0);
+                mPath.lineTo(0, 0);
+                mPath.cubicTo(points);
                 mPath.startAnimation(v, 2000, new DecelerateInterpolator());//duration:2000ms
             }
         });
