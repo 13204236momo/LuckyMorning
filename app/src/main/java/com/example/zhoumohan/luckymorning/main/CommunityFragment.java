@@ -108,27 +108,9 @@ public class CommunityFragment extends BaseFragment {
             public void onClick(View v) {
                 AnimatorPath mPath = new AnimatorPath();
                 mPath.moveTo(0, 0);//起始点
-                //三阶贝塞尔曲线
-                List<Point> points = new ArrayList<>();
-                Point point0 = new Point(0, 0);
-                Point point1 = new Point(-200, 200);
-                Point point2 = new Point(-300, 0);
-                Point point3 = new Point(-400, 100);
-                Point point4 = new Point(-600, 20);
-                Point point6 = new Point(-500, 80);
-
-                points.add(point0);
-                points.add(point1);
-                points.add(point2);
-                points.add(point3);
-                points.add(point4);
-                points.add(point6);
-
-                mPath.cubicTo(points);
-
+                mPath.cubicTo(new Point(0, 0),new Point(-200, 200),new Point(-300, 0),new Point(-400, 100),new Point(-600, 20));
                 //按照直线+曲线的复杂路径运动
                 mPath.lineTo(0, 0);
-                mPath.cubicTo(points);
                 mPath.startAnimation(v, 2000, new DecelerateInterpolator());//duration:2000ms
             }
         });

@@ -11,7 +11,7 @@ public class PathEvaluator implements TypeEvaluator<CurvePath> {
     private List<Integer> a = new ArrayList<>();
 
     public PathEvaluator() {
-        yanghui(CurvePath.points.size());
+        yanghui(CurvePath.points.length);
     }
 
     @Override
@@ -23,9 +23,9 @@ public class PathEvaluator implements TypeEvaluator<CurvePath> {
 
         if(endValue.mOperation == CurvePath.CURVE){//三阶贝塞尔曲线类型---计算
             float oneMinusT = 1 - t;
-            for (int i = 0 ;i<CurvePath.points.size();i++){
-                x = x + (float) (endValue.points.get(i).getPointX() * (Math.pow(oneMinusT,endValue.points.size()-1 - i)) * Math.pow(t,i)) * a.get(i);
-                y = y + (float) (endValue.points.get(i).getPointY() * (Math.pow(oneMinusT,endValue.points.size()-1 - i)) * Math.pow(t,i)) * a.get(i);
+            for (int i = 0 ;i<CurvePath.points.length;i++){
+                x = x + (float) (endValue.points[i].getPointX() * (Math.pow(oneMinusT,endValue.points.length-1 - i)) * Math.pow(t,i)) * a.get(i);
+                y = y + (float) (endValue.points[i].getPointY() * (Math.pow(oneMinusT,endValue.points.length-1 - i)) * Math.pow(t,i)) * a.get(i);
             }
             endValue.mX = x;
             endValue.mY = y;

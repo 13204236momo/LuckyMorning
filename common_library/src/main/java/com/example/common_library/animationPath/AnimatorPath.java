@@ -22,7 +22,7 @@ public class AnimatorPath {
     }
 
     //多阶贝塞尔曲线
-    public void cubicTo(List<Point> points) {
+    public void cubicTo(Point... points) {
         curvePathList.add(new CurvePath(CurvePath.CURVE, points));
     }
 
