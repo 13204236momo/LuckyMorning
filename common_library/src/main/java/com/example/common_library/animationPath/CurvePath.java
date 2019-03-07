@@ -48,6 +48,8 @@ public class CurvePath {
     public CurvePath(int operation,List<Point> points){
         mOperation = operation;
         this.points = points;
+        mX = points.get(points.size()-1).getPointX();
+        mY = points.get(points.size()-1).getPointY();
     }
 
     public CurvePath(){

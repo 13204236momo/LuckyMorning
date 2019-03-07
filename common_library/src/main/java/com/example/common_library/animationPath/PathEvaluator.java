@@ -55,7 +55,7 @@ public class PathEvaluator implements TypeEvaluator<CurvePath> {
 
 
     /**
-     * a 的值符合杨辉三角规律
+     * a(系数值) 的值符合杨辉三角规律
      * @param row
      */
     private void yanghui(int row) {
