@@ -5,16 +5,19 @@ import android.animation.TimeInterpolator;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 模仿Path系统工具类的设计
  * 能够存储一系列的指令：moveTo/lineTo/cubicTo(x,y等参数)
  */
 public class AnimatorPath {
-    //如何能够存储一系列的指令？
-    //如何定义指令PathPoint
+    /**
+     * 路径指令集合
+     */
     ArrayList<CurvePath> curvePathList = new ArrayList();
+    /**
+     * 要执行动画的view
+     */
     private View view;
 
     public void moveTo(float x, float y) {
@@ -22,8 +25,8 @@ public class AnimatorPath {
     }
 
     //多阶贝塞尔曲线
-    public void cubicTo(List<Point> points) {
-        curvePathList.add(new CurvePath(CurvePath.CUBIC, points));
+    public void cubicTo(Point... points) {
+        curvePathList.add(new CurvePath(CurvePath.CURVE, points));
     }
 
     //直线
@@ -36,6 +39,12 @@ public class AnimatorPath {
         startAnimation(v, duration, null);
     }
 
+    /**
+     * 支持插值器
+     * @param v
+     * @param duration
+     * @param value
+     */
     public void startAnimation(View v, int duration, TimeInterpolator value) {
         this.view = v;
         //属性动画：本质是控制一个对象身上的任何属性值----反射setTranslationX，setAlpha()

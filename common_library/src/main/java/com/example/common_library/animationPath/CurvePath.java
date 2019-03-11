@@ -1,8 +1,5 @@
 package com.example.common_library.animationPath;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 动画移动的曲线路线
  */
@@ -18,13 +15,12 @@ public class CurvePath {
     /**
      * 贝塞尔曲线
      */
-    public static final int CUBIC=2;
+    public static final int CURVE=2;
 
     int mOperation;
     float mX,mY;
 
-    public static List<Point> points = new ArrayList<>();
-
+    public static Point[] points;
 
 
     public CurvePath(int operation, float x, float y){
@@ -33,13 +29,15 @@ public class CurvePath {
         mY=y;
     }
 
+    /**
+     * 多拐点贝塞尔曲线 （3个拐点及以上，即points传入四个或以上）
+     * 传入的第一个点为起点
+     * @param operation
+     * @param points
+     */
 
-    public CurvePath(int operation,List<Point> points){
+    public CurvePath(int operation, Point[] points){
         mOperation = operation;
         this.points = points;
-    }
-
-    public CurvePath(){
-
     }
 }
