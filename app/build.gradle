@@ -9,11 +9,41 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //将svg图片生成指定维度的png图片（5.0界限）
+       // vectorDrawables.generatedDensities('mdpi','xhdpi','xxhdpi')
+        //使用support-v7兼容
+        //vectorDrawables.useSupportLibrary = true
+
+        //只保留指定和默认的资源
+        resConfigs('zh-rCN','ko')
+
+        //配置so库框架（arm：真机）
+        ndk{
+            abiFilters('arm64-v8a','armeabi','aemeabi-v7a')
+        }
+
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled true
+            //启动资源压缩
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+
+
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['libs']
         }
     }
 }

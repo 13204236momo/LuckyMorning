@@ -57,4 +57,12 @@
         android:textColor="#9b92b3"
         android:textStyle="bold"/>
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/tint_src_selector"
+        android:tint="@color/tint_color_selector"/>
+
 </LinearLayout>
