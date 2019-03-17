@@ -1,10 +1,15 @@
 package com.example.zhoumohan.luckymorning.main;
 
+import android.Manifest;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.common_library.globalNetWorkChange.NetType;
 import com.example.common_library.globalNetWorkChange.Network;
@@ -21,7 +26,12 @@ import java.util.List;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
+
 public class MainActivity extends BaseActivity {
+
+    static {
+        System.loadLibrary("native-lib");
+    }
 
     private ViewPager viewPager;
     private NavigationTabBar navigationTabBar;
@@ -46,7 +56,20 @@ public class MainActivity extends BaseActivity {
 
         initFragment();
         initUI();
+        upDateApk();
+        getMessage();
+    }
 
+    private void getMessage() {
+        PackageManager manager = getPackageManager();
+        String name = null;
+        try {
+            PackageInfo info = manager.getPackageInfo(getPackageName(), 0);
+            name = info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(this, name, Toast.LENGTH_LONG).show();
     }
 
 
@@ -156,17 +179,26 @@ public class MainActivity extends BaseActivity {
     public void network(NetType netType) {
         switch (netType) {
             case WIFI:
-                Log.e(Constants.LOG_TAG,"WIFI");
+                Log.e(Constants.LOG_TAG, "WIFI");
                 break;
             case CMNET:
             case CMWAP:
                 //有网络
-                Log.e(Constants.LOG_TAG,"移动数据连接");
+                Log.e(Constants.LOG_TAG, "移动数据连接");
                 break;
             case NONE:
                 //没有网络
-                Log.e(Constants.LOG_TAG,"网络连接失败");
+                Log.e(Constants.LOG_TAG, "网络连接失败");
                 break;
+        }
+    }
+
+    private void upDateApk() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            if (checkCallingPermission(perms[0]) == PackageManager.PERMISSION_DENIED) {
+                requestPermissions(perms, 200);
+            }
         }
     }
 
@@ -178,4 +210,14 @@ public class MainActivity extends BaseActivity {
         NetworkManager.getDefault().unRegisterAll();
 
     }
+
+
+    /**
+     * 合成安装包
+     *
+     * @param oldApk
+     * @param newApk
+     * @param outputPath 合成安装包的路径
+     */
+    public native void bsPath(String oldApk, String newApk, String outputPath);
 }

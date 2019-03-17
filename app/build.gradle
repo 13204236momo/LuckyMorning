@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        lucky_123 {
+            keyAlias 'lucky_y'
+            keyPassword 'lucky_123'
+            storeFile file('/Users/zhoumohan/AndroidStudioProjects/LuckyMorning/app/luckmorning.jks')
+            storePassword 'lucky_123'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.zhoumohan.luckymorning"
@@ -11,16 +19,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //将svg图片生成指定维度的png图片（5.0界限）
-       // vectorDrawables.generatedDensities('mdpi','xhdpi','xxhdpi')
+        // vectorDrawables.generatedDensities('mdpi','xhdpi','xxhdpi')
         //使用support-v7兼容
         //vectorDrawables.useSupportLibrary = true
-
         //只保留指定和默认的资源
-        resConfigs('zh-rCN','ko')
+        resConfigs('zh-rCN')
 
         //配置so库框架（arm：真机）
-        ndk{
-            abiFilters('arm64-v8a','armeabi','aemeabi-v7a')
+        ndk {
+            moduleName 'native-lib'
+            abiFilters('arm64-v8a', 'armeabi-v7a', 'x86')
+        }
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
         }
 
     }
@@ -31,19 +45,21 @@ android {
         }
 
         debug {
-            minifyEnabled true
+            minifyEnabled false
             //启动资源压缩
-            shrinkResources true
+//            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
     }
-
-
-
-    sourceSets{
-        main{
+    sourceSets {
+        main {
             jniLibs.srcDirs = ['libs']
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
         }
     }
 }
@@ -56,7 +72,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation  'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'devlight.io:navigationtabbar:1.2.5'
     implementation 'com.squareup.okhttp:okhttp:2.7.2'
