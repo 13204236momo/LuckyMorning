@@ -26,7 +26,6 @@ import java.util.List;
 
 import devlight.io.library.ntb.NavigationTabBar;
 
-
 public class MainActivity extends BaseActivity {
 
     static {
