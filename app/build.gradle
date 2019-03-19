@@ -9,6 +9,7 @@ android {
             storePassword 'lucky_123'
         }
     }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.zhoumohan.luckymorning"
@@ -19,9 +20,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //将svg图片生成指定维度的png图片（5.0界限）
-        // vectorDrawables.generatedDensities('mdpi','xhdpi','xxhdpi')
+        //vectorDrawables.generatedDensities('mdpi','xhdpi','xxhdpi')
         //使用support-v7兼容
         //vectorDrawables.useSupportLibrary = true
+
         //只保留指定和默认的资源
         resConfigs('zh-rCN')
 
@@ -36,8 +38,8 @@ android {
                 cppFlags ""
             }
         }
-
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -46,15 +48,18 @@ android {
         debug {
             minifyEnabled false
             //启动资源压缩
-//            shrinkResources true
+            //shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //jni开发环境配置
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
     }
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
@@ -81,5 +86,7 @@ dependencies {
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation 'com.gordonwong:material-sheet-fab:1.2.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.google.zxing:core:3.3.3'
     implementation project(':common_library')
+    implementation files('libs/qrcode.jar')
 }
