@@ -1,12 +1,13 @@
 package com.example.zhoumohan.luckymorning.common.widget;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -28,6 +29,10 @@ public class ParticleBlastView extends View {
      * @param context
      */
 
+    private BitmapDrawable src;
+    private int width;
+    private int height;
+
     private Bitmap mBitmap;
     private float radius = 3;
     private List<Particle> list = new ArrayList<>();
@@ -44,12 +49,23 @@ public class ParticleBlastView extends View {
 
     public ParticleBlastView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        initAttrs(context, attrs);
         init();
+    }
+
+    private void initAttrs(Context context, @Nullable AttributeSet attrs) {
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ParticleBlast);
+        if (array != null) {
+            src = (BitmapDrawable) array.getDrawable(R.styleable.ParticleBlast_src);
+            width = array.getLayoutDimension(R.styleable.ParticleBlast_android_layout_width, -1);
+            height = array.getLayoutDimension(R.styleable.ParticleBlast_android_layout_height, -2);
+        }
     }
 
     private void init() {
         mPaint = new Paint();
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.pic);
+        mBitmap = src.getBitmap();
         for (int i = 0; i < mBitmap.getWidth(); i++) {
             for (int j = 0; j < mBitmap.getHeight(); j++) {
                 Particle mParticle = new Particle();
@@ -69,6 +85,7 @@ public class ParticleBlastView extends View {
         }
 
         animator = ValueAnimator.ofFloat(0, 1);
+        animator.setRepeatCount(-1);
         animator.setDuration(2000);
         animator.setInterpolator(new LinearInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -84,11 +101,11 @@ public class ParticleBlastView extends View {
     private void upData() {
         //更新粒子的位置
         for (Particle particle : list) {
-            particle.setPointX(particle.getvX() + particle.getaX());
-            particle.setPointY(particle.getvX() + particle.getaX());
+            particle.setPointX(particle.getPointX() + particle.getvX());
+            particle.setPointY(particle.getPointY() + particle.getvY());
 
             particle.setvX(particle.getvX() + particle.getaX());
-            particle.setvX(particle.getvX() + particle.getaX());
+            particle.setvY(particle.getvY() + particle.getaY());
         }
     }
 
@@ -110,6 +127,30 @@ public class ParticleBlastView extends View {
         }
         return super.onTouchEvent(event);
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(measureWidth(widthMeasureSpec), measureWidth(heightMeasureSpec));
+    }
+
+    private int measureWidth(int measureSpec) {
+        int result = 0;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+        switch (measureSpec) {
+            case MeasureSpec.AT_MOST:
+            case MeasureSpec.UNSPECIFIED:
+                result = Math.min(result, specSize);
+                break;
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+        }
+
+        return result;
+    }
+
 
     @Override
     protected void onDraw(Canvas canvas) {

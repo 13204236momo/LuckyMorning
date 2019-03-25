@@ -32,6 +32,13 @@
         <activity android:name=".main.MainActivity"/>
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".camera.CaptureActivity"/>
+        <activity android:name=".start.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!--网络变化广播-->
         <receiver android:name="com.zhoumohan.common_library.globalNetWorkChange.NetStateReceiver">
