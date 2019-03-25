@@ -1,4 +1,4 @@
-package com.example.common_library.animationPath;
+package com.zhoumohan.common_library.animationPath;
 
 public class Point {
     /**

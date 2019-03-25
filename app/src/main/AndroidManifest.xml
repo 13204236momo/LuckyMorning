@@ -28,19 +28,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".start.StartActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity android:name=".main.MainActivity"/>
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".camera.CaptureActivity"/>
 
         <!--网络变化广播-->
-        <receiver android:name="com.example.common_library.globalNetWorkChange.NetStateReceiver">
+        <receiver android:name="com.zhoumohan.common_library.globalNetWorkChange.NetStateReceiver">
         <intent-filter>
             <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
         </intent-filter>

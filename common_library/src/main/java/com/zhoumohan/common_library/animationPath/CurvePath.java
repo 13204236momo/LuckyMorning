@@ -1,4 +1,4 @@
-package com.example.common_library.animationPath;
+package com.zhoumohan.common_library.animationPath;
 
 /**
  * 动画移动的曲线路线

@@ -1,4 +1,4 @@
-package com.example.common_library.globalNetWorkChange;
+package com.zhoumohan.common_library.globalNetWorkChange;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkRequest;
 import android.os.Build;
 
-import com.example.common_library.globalNetWorkChange.utils.Constants;
+import com.zhoumohan.common_library.globalNetWorkChange.utils.Constants;
 
 public class NetworkManager {
     private static volatile NetworkManager instance;

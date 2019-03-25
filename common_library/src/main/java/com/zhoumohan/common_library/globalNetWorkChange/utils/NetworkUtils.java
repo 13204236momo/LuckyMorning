@@ -1,4 +1,4 @@
-package com.example.common_library.globalNetWorkChange.utils;
+package com.zhoumohan.common_library.globalNetWorkChange.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.example.common_library.globalNetWorkChange.NetType;
-import com.example.common_library.globalNetWorkChange.NetworkManager;
+import com.zhoumohan.common_library.globalNetWorkChange.NetType;
+import com.zhoumohan.common_library.globalNetWorkChange.NetworkManager;
 
 public class NetworkUtils {
 

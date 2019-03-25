@@ -11,10 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.common_library.globalNetWorkChange.NetType;
-import com.example.common_library.globalNetWorkChange.Network;
-import com.example.common_library.globalNetWorkChange.NetworkManager;
-import com.example.common_library.globalNetWorkChange.utils.Constants;
+import com.zhoumohan.common_library.globalNetWorkChange.NetType;
+import com.zhoumohan.common_library.globalNetWorkChange.Network;
+import com.zhoumohan.common_library.globalNetWorkChange.NetworkManager;
+import com.zhoumohan.common_library.globalNetWorkChange.utils.Constants;
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseActivity;
 import com.example.zhoumohan.luckymorning.community.CommunityDetailMvpFragment;

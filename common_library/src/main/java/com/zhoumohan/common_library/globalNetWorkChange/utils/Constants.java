@@ -1,4 +1,4 @@
-package com.example.common_library.globalNetWorkChange.utils;
+package com.zhoumohan.common_library.globalNetWorkChange.utils;
 
 public class Constants {
     /**

@@ -2,7 +2,7 @@ package com.example.zhoumohan.luckymorning;
 
 import android.app.Application;
 
-import com.example.common_library.globalNetWorkChange.NetworkManager;
+import com.zhoumohan.common_library.globalNetWorkChange.NetworkManager;
 
 public class App extends Application {
 

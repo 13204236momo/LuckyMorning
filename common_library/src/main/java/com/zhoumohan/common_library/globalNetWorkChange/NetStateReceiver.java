@@ -1,4 +1,4 @@
-package com.example.common_library.globalNetWorkChange;
+package com.zhoumohan.common_library.globalNetWorkChange;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,13 +8,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
-import com.example.common_library.globalNetWorkChange.utils.Constants;
-import com.example.common_library.globalNetWorkChange.utils.NetworkUtils;
+import com.zhoumohan.common_library.globalNetWorkChange.utils.Constants;
+import com.zhoumohan.common_library.globalNetWorkChange.utils.NetworkUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

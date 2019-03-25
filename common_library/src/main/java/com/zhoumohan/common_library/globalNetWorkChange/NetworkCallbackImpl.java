@@ -1,4 +1,4 @@
-package com.example.common_library.globalNetWorkChange;
+package com.zhoumohan.common_library.globalNetWorkChange;
 
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -7,7 +7,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
-import com.example.common_library.globalNetWorkChange.utils.Constants;
+import com.zhoumohan.common_library.globalNetWorkChange.utils.Constants;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class NetworkCallbackImpl extends ConnectivityManager.NetworkCallback {

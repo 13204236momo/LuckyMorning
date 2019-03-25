@@ -1,4 +1,4 @@
-package com.example.common_library.globalNetWorkChange;
+package com.zhoumohan.common_library.globalNetWorkChange;
 
 public enum  NetType {
     /**

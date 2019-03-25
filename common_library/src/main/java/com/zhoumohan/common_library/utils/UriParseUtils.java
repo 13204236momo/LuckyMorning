@@ -1,4 +1,4 @@
-package com.example.common_library.utils;
+package com.zhoumohan.common_library.utils;
 
 import android.content.Context;
 import android.content.Intent;
