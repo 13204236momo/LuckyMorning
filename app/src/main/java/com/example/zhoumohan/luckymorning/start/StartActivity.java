@@ -7,8 +7,7 @@ import android.widget.TextView;
 
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseActivity;
-import com.example.zhoumohan.luckymorning.common.widget.ParticleBlastView;
-import com.example.zhoumohan.luckymorning.common.widget.SplashView;
+import com.example.zhoumohan.luckymorning.common.widget.bubble.DragBubbleView;
 import com.example.zhoumohan.luckymorning.common.widget.titanic.Titanic;
 import com.example.zhoumohan.luckymorning.common.widget.titanic.TitanicTextView;
 import com.example.zhoumohan.luckymorning.main.MainActivity;
@@ -24,7 +23,7 @@ public class StartActivity extends BaseActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new SplashView(this));
+        setContentView(new DragBubbleView(this));
         //contentView(R.layout.activity_start);
         //initUI();
     }

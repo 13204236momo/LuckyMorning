@@ -107,6 +107,22 @@ public class ParticleBlastView extends View {
             particle.setvX(particle.getvX() + particle.getaX());
             particle.setvY(particle.getvY() + particle.getaY());
         }
+//只显示部分像素的爆炸效果
+//        for (int i=0;i<list.size();i++){
+//            Particle particle = list.get(i);
+//
+//            if (i<30){
+//                particle.setRadius(30);
+//            }else {
+//                particle.setRadius(0);
+//            }
+//
+//            particle.setPointX(particle.getPointX() + particle.getvX());
+//            particle.setPointY(particle.getPointY() + particle.getvY());
+//
+//            particle.setvX(particle.getvX() + particle.getaX());
+//            particle.setvY(particle.getvY() + particle.getaY());
+//        }
     }
 
     private int rangInt(int i, int j) {
@@ -128,11 +144,11 @@ public class ParticleBlastView extends View {
         return super.onTouchEvent(event);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(measureWidth(widthMeasureSpec), measureWidth(heightMeasureSpec));
-    }
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        //super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        setMeasuredDimension(measureWidth(widthMeasureSpec), measureWidth(heightMeasureSpec));
+//    }
 
     private int measureWidth(int measureSpec) {
         int result = 0;

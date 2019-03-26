@@ -5,13 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zhoumohan.luckymorning.R;
@@ -33,7 +28,7 @@ public class NewsFragment4 extends BaseFragment {
     private static final int REQUEST_SCAN = 0;
     @Override
     protected int getLayoutResID() {
-        return R.layout.item_vp1;
+        return R.layout.item_vp4;
     }
 
     @Override
