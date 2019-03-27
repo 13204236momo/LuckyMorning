@@ -10,10 +10,20 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/ic_scan_black"/>
+        android:background="@drawable/ic_scan_black"
+        android:visibility="gone"/>
 
     <com.example.zhoumohan.luckymorning.common.widget.ParticleBlastView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:src ="@mipmap/pic"/>
+        app:src ="@mipmap/pic"
+        android:visibility="gone"/>
+
+    <com.example.zhoumohan.luckymorning.common.widget.DragBubbleView1
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:bubble_text="19"
+        app:bubble_textSize="16sp"
+        app:bubble_radius="16dp"
+        app:bubble_color="@android:color/holo_red_light"/>
 </RelativeLayout>
