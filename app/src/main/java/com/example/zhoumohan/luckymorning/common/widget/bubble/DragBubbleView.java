@@ -151,7 +151,7 @@ public class DragBubbleView extends View {
             //1.静止状态 气泡和文字
             canvas.drawCircle(fixDragBubble.mCenterX, fixDragBubble.mCenterY, fixDragBubble.mRadius, bubblePaint);
             textPaint.getTextBounds(text, 0, text.length(), textRect);
-            canvas.drawText(text, fixDragBubble.mCenterX - textRect.width() / 2, fixDragBubble.mCenterY + textRect.height() / 2, textPaint);
+            canvas.drawText(text, fixDragBubble.mCenterX - ((float)textRect.width()) / 2, fixDragBubble.mCenterY + textRect.height() / 2, textPaint);
         }
 
         //2.连接状态 静止状态气泡、移动气泡、文字、两气泡和贝塞尔曲线围成的区域
@@ -161,8 +161,6 @@ public class DragBubbleView extends View {
             canvas.drawCircle(fixDragBubble.mCenterX, fixDragBubble.mCenterY, fixDragBubble.mRadius, bubblePaint);
             //移动气泡
             canvas.drawCircle(moveDragBubble.mCenterX, moveDragBubble.mCenterY, moveDragBubble.mRadius, bubblePaint);
-            textPaint.getTextBounds(text, 0, text.length(), textRect);
-            canvas.drawText(text, moveDragBubble.mCenterX - textRect.width() / 2, moveDragBubble.mCenterY + textRect.height() / 2, textPaint);
 
             //两圆心之间的距离
             float mDistance = (float) Math.hypot((moveDragBubble.mCenterX - fixDragBubble.mCenterX),(moveDragBubble.mCenterY - fixDragBubble.mCenterY));
@@ -197,6 +195,10 @@ public class DragBubbleView extends View {
             path.close();
 
             canvas.drawPath(path,pathPaint);
+
+            textPaint.getTextBounds(text, 0, text.length(), textRect);
+            canvas.drawText(text, moveDragBubble.mCenterX - ((float)textRect.width()) / 2, moveDragBubble.mCenterY + textRect.height() / 2, textPaint);
+
 
         }
         //3.分离状态  气泡和文字
