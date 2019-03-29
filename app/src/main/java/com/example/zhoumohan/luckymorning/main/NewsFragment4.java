@@ -6,12 +6,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.camera.CaptureActivity;
+import com.example.zhoumohan.luckymorning.demo.QQBubbleActivity;
 import com.example.zhoumohan.luckymorning.util.CameraUtil;
 
 import butterknife.BindView;
@@ -24,6 +26,8 @@ public class NewsFragment4 extends BaseFragment {
 
     @BindView(R.id.iv_qr)
     ImageView ivQr;
+    @BindView(R.id.btn_qq)
+    Button btnQQ;
 
     private static final int REQUEST_SCAN = 0;
     @Override
@@ -37,11 +41,14 @@ public class NewsFragment4 extends BaseFragment {
     }
 
 
-    @OnClick(R.id.iv_qr)
+    @OnClick({R.id.iv_qr,R.id.btn_qq})
     void onClick(View view){
         switch (view.getId()){
             case R.id.iv_qr:
                 getRuntimePermission();
+                break;
+            case R.id.btn_qq:
+                startActivity(new Intent(getActivity(), QQBubbleActivity.class));
                 break;
         }
 
@@ -73,6 +80,4 @@ public class NewsFragment4 extends BaseFragment {
             Toast.makeText(getActivity(), data.getStringExtra(CameraUtil.BAR_CODE), Toast.LENGTH_LONG).show();
         }
     }
-
-
 }

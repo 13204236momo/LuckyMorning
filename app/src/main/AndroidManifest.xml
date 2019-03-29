@@ -32,6 +32,7 @@
         <activity android:name=".main.MainActivity"/>
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".camera.CaptureActivity"/>
+        <activity android:name=".demo.QQBubbleActivity"/>
         <activity android:name=".start.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
