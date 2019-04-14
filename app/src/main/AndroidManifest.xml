@@ -32,7 +32,7 @@
         <activity android:name=".main.MainActivity"/>
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".camera.CaptureActivity"/>
-        <activity android:name=".start.StartActivity">
+        <activity android:name=".start.Start1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

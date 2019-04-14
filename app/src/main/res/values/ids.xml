@@ -3,4 +3,6 @@
     <item name="status_view" type="id" />
     <item name="translucent_view" type="id" />
     <item name="tv_price" type="id" />
+    <item name="parallax_view_tag" type="id"/>
+    <item name="parallax_pager" type="id"/>
 </resources>

@@ -87,6 +87,7 @@ dependencies {
     implementation 'com.gordonwong:material-sheet-fab:1.2.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.nineoldandroids:library:2.4.0'
     implementation project(':common_library')
     implementation files('libs/qrcode.jar')
 }

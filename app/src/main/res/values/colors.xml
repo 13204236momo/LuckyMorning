@@ -7,4 +7,6 @@
     <color name="background_card">#fff</color>
     <color name="text_black_87">#de000000</color>
     <color name="theme_accent">#fee98d</color>
+    <color name="transparent">#00000000</color>
+    <color name="base_shallow_black">#818181</color>
 </resources>
