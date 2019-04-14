@@ -1,3 +1,4 @@
+
 package com.example.zhoumohan.luckymorning.common.widget.dragBubbleView;
 
 import android.animation.Animator;
@@ -197,15 +198,15 @@ public class DragBubbleView extends View {
         mBubbleState = BUBBLE_STATE_DEFAULT;
         //设置固定气泡圆心初始坐标
         if (mBubFixedCenter == null) {
-            mBubFixedCenter = new PointF(w ,h);
+            mBubFixedCenter = new PointF(w, h);
         } else {
-            mBubFixedCenter.set(w ,h);
+            mBubFixedCenter.set(w, h);
         }
         //设置可动气泡圆心初始坐标
         if (mBubMovableCenter == null) {
-            mBubMovableCenter = new PointF(w ,h);
+            mBubMovableCenter = new PointF(w, h);
         } else {
-            mBubMovableCenter.set(w ,h);
+            mBubMovableCenter.set(w, h);
         }
 
         invalidate();
@@ -277,7 +278,7 @@ public class DragBubbleView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (mBubbleState != BUBBLE_STATE_DISMISS) {
-                    mDist = (float) Math.hypot(Math.abs(event.getX()),Math.abs(event.getY()));
+                    mDist = (float) Math.hypot(Math.abs(event.getX()), Math.abs(event.getY()));
                     if (mDist < mBubbleRadius + MOVE_OFFSET) {
                         //加上MOVE_OFFSET是为了方便拖拽
                         mBubbleState = BUBBLE_STATE_CONNECT;
@@ -289,8 +290,8 @@ public class DragBubbleView extends View {
             case MotionEvent.ACTION_MOVE:
                 if (mBubbleState != BUBBLE_STATE_DEFAULT) {
                     mDist = (float) Math.hypot(event.getX(), event.getY());
-                    mBubMovableCenter.x = event.getX()+mBubFixedCenter.x;
-                    mBubMovableCenter.y = event.getY()+mBubFixedCenter.y;
+                    mBubMovableCenter.x = event.getX() + mBubFixedCenter.x;
+                    mBubMovableCenter.y = event.getY() + mBubFixedCenter.y;
                     if (mBubbleState == BUBBLE_STATE_CONNECT) {
                         if (mDist < mMaxDist - MOVE_OFFSET) {//当拖拽的距离在指定范围内，那么调整不动气泡的半径
                             mBubFixedRadius = mBubbleRadius - mDist / 8;
@@ -306,10 +307,10 @@ public class DragBubbleView extends View {
                     // 橡皮筋动画
                     startBubbleRestAnim();
                 } else if (mBubbleState == BUBBLE_STATE_APART) {
-                    if (mDist < 2 * mBubbleRadius){
+                    if (mDist < 2 * mBubbleRadius) {
                         //反弹动画
                         startBubbleRestAnim();
-                    }else{
+                    } else {
                         // 爆炸动画
                         startBubbleBurstAnim();
                     }
@@ -346,9 +347,9 @@ public class DragBubbleView extends View {
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-               if (listener != null){
-                   listener.onDefault();
-               }
+                if (listener != null) {
+                    listener.onDefault();
+                }
             }
         });
         anim.start();
@@ -373,7 +374,7 @@ public class DragBubbleView extends View {
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (listener != null){
+                if (listener != null) {
                     listener.onDismiss();
                 }
             }
@@ -384,35 +385,39 @@ public class DragBubbleView extends View {
 
     /**
      * 设置消息数
+     *
      * @param str
      */
-    public void setTextStr(String str){
+    public void setTextStr(String str) {
         mTextStr = str;
     }
 
     /**
      * 设置文字大小
+     *
      * @param textSize
      */
-    public void setTextSize(float textSize){
+    public void setTextSize(float textSize) {
         mTextSize = textSize;
         mTextPaint.setTextSize(textSize);
     }
 
     /**
      * 设置文字颜色
+     *
      * @param color
      */
-    public void setTextColor(int color){
+    public void setTextColor(int color) {
         mTextColor = color;
         mTextPaint.setColor(color);
     }
 
     /**
      * 设置气泡半径
+     *
      * @param radius
      */
-    public void setBubbleRadius(float radius){
+    public void setBubbleRadius(float radius) {
         this.mBubbleRadius = radius;
         mBubFixedRadius = mBubbleRadius;
         mBubMovableRadius = mBubFixedRadius;
@@ -421,18 +426,23 @@ public class DragBubbleView extends View {
     }
 
 
-    public interface StateChangeListener{
+    public interface StateChangeListener {
         void onDefault();
+
         void onConnect();
+
         void onApart();
+
         void onDismiss();
     }
 
     private StateChangeListener listener;
 
-    public void setSateChangeListener(StateChangeListener listener){
+    public void setSateChangeListener(StateChangeListener listener) {
         this.listener = listener;
     }
 
 
 }
+
+
