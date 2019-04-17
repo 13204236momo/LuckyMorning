@@ -33,7 +33,6 @@ public class ParallaxLayoutInflater extends LayoutInflater {
 
 
     class ParallaxFactory implements Factory2 {
-
         private final String[] sClassPrefix = {"android.widget.", "android.view."};
         private int[] attrIds = {
                 R.attr.a_in,
@@ -51,7 +50,6 @@ public class ParallaxLayoutInflater extends LayoutInflater {
             //将系统控件加上包名
             if (name.contains(".")) { //自定义控件是全路径
                 view1 = createMyView(name, context, attributeSet);
-
             } else {
                 for (String prefix : sClassPrefix) {
                     view1 = createMyView(prefix + name, context, attributeSet);
@@ -60,7 +58,6 @@ public class ParallaxLayoutInflater extends LayoutInflater {
                     }
                 }
             }
-
             //将AttributeSet取出自定义属性，封装成javaBean，设置到viewTag
             TypedArray a = context.obtainStyledAttributes(attributeSet, attrIds);
             if (a != null && a.length() > 0) {
@@ -71,9 +68,7 @@ public class ParallaxLayoutInflater extends LayoutInflater {
                 tag.xOut = a.getFloat(3, 0f);
                 tag.yIn = a.getFloat(4, 0f);
                 tag.yOut = a.getFloat(5, 0f);
-
                 view1.setTag(R.id.parallax_view_tag, tag);
-
             }
             a.recycle();
             fragment.getParallaxViews().add(view1);
@@ -89,8 +84,6 @@ public class ParallaxLayoutInflater extends LayoutInflater {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
             return null;
         }
 

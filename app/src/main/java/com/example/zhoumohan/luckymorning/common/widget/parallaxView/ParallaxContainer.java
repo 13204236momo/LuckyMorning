@@ -57,9 +57,7 @@ public class ParallaxContainer extends FrameLayout implements ViewPager.OnPageCh
         Start1Activity activity = (Start1Activity) getContext();
         adapter = new ParallaxPagerAdapter(activity.getSupportFragmentManager(), fragments);
         viewPager.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-
         viewPager.setAdapter(adapter);
-
         viewPager.setOnPageChangeListener(this);
     }
 
@@ -75,7 +73,6 @@ public class ParallaxContainer extends FrameLayout implements ViewPager.OnPageCh
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         try {
             inFragment = fragments.get(position);
         } catch (Exception e) {
@@ -91,7 +88,6 @@ public class ParallaxContainer extends FrameLayout implements ViewPager.OnPageCh
                 }
                 ViewHelper.setTranslationX(view, containerWidth - positionOffsetPixels * tag.xOut);
                 ViewHelper.setTranslationY(view, containerWidth - positionOffsetPixels * tag.yOut);
-
             }
         }
 
@@ -104,7 +100,6 @@ public class ParallaxContainer extends FrameLayout implements ViewPager.OnPageCh
                 }
                 ViewHelper.setTranslationX(view, 0 - positionOffsetPixels * tag.xIn);
                 ViewHelper.setTranslationY(view, 0 - positionOffsetPixels * tag.yIn);
-
             }
         }
     }

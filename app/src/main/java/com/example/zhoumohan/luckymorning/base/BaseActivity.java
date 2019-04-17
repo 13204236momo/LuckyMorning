@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.zhoumohan.luckymorning.R;
+import com.zhoumohan.common_library.density.Density;
 
 public class BaseActivity extends AppCompatActivity {
 
