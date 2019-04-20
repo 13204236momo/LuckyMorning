@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.camera.CaptureActivity;
+import com.example.zhoumohan.luckymorning.common.widget.BottomDialog;
 import com.example.zhoumohan.luckymorning.demo.MapViewActivity;
 import com.example.zhoumohan.luckymorning.demo.QQBubbleActivity;
 import com.example.zhoumohan.luckymorning.util.CameraUtil;
@@ -54,7 +55,9 @@ public class NewsFragment4 extends BaseFragment {
                 startActivity(new Intent(getActivity(), QQBubbleActivity.class));
                 break;
             case R.id.btn_map:
-                startActivity(new Intent(getActivity(), MapViewActivity.class));
+                //startActivity(new Intent(getActivity(), MapViewActivity.class));
+                BottomDialog dialog = new BottomDialog(getContext(),R.style.BottomDialog);
+                dialog.show();
                 break;
         }
 
