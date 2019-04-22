@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.camera.CaptureActivity;
+import com.example.zhoumohan.luckymorning.common.widget.CircleView;
+import com.example.zhoumohan.luckymorning.demo.CircleViewActivity;
 import com.example.zhoumohan.luckymorning.demo.MapViewActivity;
 import com.example.zhoumohan.luckymorning.demo.QQBubbleActivity;
 import com.example.zhoumohan.luckymorning.util.CameraUtil;
@@ -31,6 +33,8 @@ public class NewsFragment4 extends BaseFragment {
     Button btnQQ;
     @BindView(R.id.btn_map)
     Button btnMap;
+    @BindView(R.id.btn_circle)
+    Button btnCircle;
 
     private static final int REQUEST_SCAN = 0;
     @Override
@@ -44,7 +48,7 @@ public class NewsFragment4 extends BaseFragment {
     }
 
 
-    @OnClick({R.id.iv_qr,R.id.btn_qq,R.id.btn_map})
+    @OnClick({R.id.iv_qr,R.id.btn_qq,R.id.btn_map,R.id.btn_circle})
     void onClick(View view){
         switch (view.getId()){
             case R.id.iv_qr:
@@ -55,6 +59,9 @@ public class NewsFragment4 extends BaseFragment {
                 break;
             case R.id.btn_map:
                 startActivity(new Intent(getActivity(), MapViewActivity.class));
+                break;
+            case R.id.btn_circle:
+                startActivity(new Intent(getActivity(), CircleViewActivity.class));
                 break;
         }
 
