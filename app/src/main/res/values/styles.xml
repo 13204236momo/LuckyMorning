@@ -45,5 +45,23 @@
         <item name="android:drawablePadding">@dimen/sheet_item_image_spacing</item>
     </style>
 
+    <style name="BottomDialog" parent="@android:style/Theme.Holo.Dialog">
+        <!--是否有边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否悬浮在Activity上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--无标题-->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--从底部进入退出动画-->
+    <style name="BottomDialog.Animation" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out_anim</item>
+    </style>
+
+
 
 </resources>
