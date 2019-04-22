@@ -43,7 +43,7 @@ public class CouponAdapter extends BaseAdapter {
         HoldView holdView;
         if (view == null){
             holdView = new HoldView();
-            view = LayoutInflater.from(context).inflate(R.layout.item_coupon,null);
+            view = LayoutInflater.from(context).inflate(R.layout.item_coupon_dialog,null);
             holdView.tvTotal = view.findViewById(R.id.tv_total);
             holdView.tvTitle = view.findViewById(R.id.tv_title);
             holdView.tvDate = view.findViewById(R.id.tv_date);

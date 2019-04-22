@@ -9,4 +9,6 @@
     <color name="theme_accent">#fee98d</color>
     <color name="transparent">#00000000</color>
     <color name="base_shallow_black">#818181</color>
+    <color name="colorWhiteBg">#ffffff</color>
+    <color name="colorGrayBg">#f4f4f4</color>
 </resources>

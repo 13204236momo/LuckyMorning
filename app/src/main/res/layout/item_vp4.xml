@@ -34,4 +34,16 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/btn_map"
         android:text="旋转圆"/>
+    <Button
+        android:id="@+id/btn_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn_circle"
+        android:text="底部dialog"/>
+    <Button
+        android:id="@+id/btn_vlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_dialog"
+        android:text="VLayout"/>
 </RelativeLayout>

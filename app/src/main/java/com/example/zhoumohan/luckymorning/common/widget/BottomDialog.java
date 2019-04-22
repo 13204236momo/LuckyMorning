@@ -75,7 +75,6 @@ public class BottomDialog extends Dialog {
             public void onLayoutChange(View view, int left, int top, int light, int bottom, int oldLeft, int oldTop, int oldLight, int oldBottom) {
                 int height = view.getHeight();
                 int needHeight = DisplayUtil.getRealScreenRelatedInformation(getContext())[1]/2;
-
                 if (height > needHeight) {
                     //注意：这里的 LayoutParams 必须是 FrameLayout的！！
                     view.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, needHeight));

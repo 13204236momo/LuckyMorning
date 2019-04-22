@@ -11,11 +11,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-
     <uses-feature android:name="android.hardware.camera2" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -27,12 +25,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo.MapViewActivity"></activity>
+        <activity android:name=".demo.taobaoFirstPage.ShoppingActivity"></activity>
+        <activity android:name=".demo.MapViewActivity" />
         <activity android:name=".main.MainActivity" />
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".camera.CaptureActivity" />
         <activity android:name=".demo.QQBubbleActivity" />
-        <activity android:name=".demo.CircleViewActivity"/>
+        <activity android:name=".demo.CircleViewActivity" />
         <activity android:name=".start.Start1Activity" />
         <activity android:name=".start.StartActivity">
             <intent-filter>

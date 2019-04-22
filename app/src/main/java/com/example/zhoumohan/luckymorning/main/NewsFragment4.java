@@ -16,6 +16,7 @@ import com.example.zhoumohan.luckymorning.camera.CaptureActivity;
 import com.example.zhoumohan.luckymorning.common.widget.BottomDialog;
 import com.example.zhoumohan.luckymorning.demo.MapViewActivity;
 import com.example.zhoumohan.luckymorning.demo.QQBubbleActivity;
+import com.example.zhoumohan.luckymorning.demo.taobaoFirstPage.ShoppingActivity;
 import com.example.zhoumohan.luckymorning.util.CameraUtil;
 
 import butterknife.BindView;
@@ -45,7 +46,7 @@ public class NewsFragment4 extends BaseFragment {
     }
 
 
-    @OnClick({R.id.iv_qr,R.id.btn_qq,R.id.btn_map})
+    @OnClick({R.id.iv_qr,R.id.btn_qq,R.id.btn_map,R.id.btn_vlayout})
     void onClick(View view){
         switch (view.getId()){
             case R.id.iv_qr:
@@ -55,9 +56,14 @@ public class NewsFragment4 extends BaseFragment {
                 startActivity(new Intent(getActivity(), QQBubbleActivity.class));
                 break;
             case R.id.btn_map:
-                //startActivity(new Intent(getActivity(), MapViewActivity.class));
+                startActivity(new Intent(getActivity(), MapViewActivity.class));
+                break;
+            case R.id.btn_dialog:
                 BottomDialog dialog = new BottomDialog(getContext(),R.style.BottomDialog);
                 dialog.show();
+                break;
+            case R.id.btn_vlayout:
+                startActivity(new Intent(getActivity(), ShoppingActivity.class));
                 break;
         }
 
