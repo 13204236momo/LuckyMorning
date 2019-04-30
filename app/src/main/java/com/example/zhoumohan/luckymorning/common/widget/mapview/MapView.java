@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.graphics.PathParser;
 import android.util.AttributeSet;
@@ -23,7 +22,6 @@ import org.w3c.dom.NodeList;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.LogRecord;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -167,5 +165,15 @@ public class MapView extends View {
                 }
             }
         }
+
+        /**
+         * @param bitmap 位图图片
+         * @param tileX x方向渲染模式
+         * @param tileY y方向渲染模式
+         */
+//        Shader mShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+//        Paint mPaint = new Paint();
+//        mPaint.setShader(mShader);
+//        canvas.drawCircle(250, 250, 250, mPaint);
     }
 }

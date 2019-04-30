@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-feature android:name="android.hardware.camera2" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -25,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo.taobaoFirstPage.ShoppingActivity"></activity>
+        <activity android:name=".demo.ImageActivity"></activity>
+        <activity android:name=".demo.taobaoFirstPage.ShoppingActivity" />
         <activity android:name=".demo.MapViewActivity" />
         <activity android:name=".main.MainActivity" />
         <activity android:name=".base.BaseActivity" />

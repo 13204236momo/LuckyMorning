@@ -14,6 +14,7 @@ import com.example.zhoumohan.luckymorning.R;
 import com.example.zhoumohan.luckymorning.base.BaseFragment;
 import com.example.zhoumohan.luckymorning.camera.CaptureActivity;
 import com.example.zhoumohan.luckymorning.common.widget.BottomDialog;
+import com.example.zhoumohan.luckymorning.demo.ImageActivity;
 import com.example.zhoumohan.luckymorning.demo.MapViewActivity;
 import com.example.zhoumohan.luckymorning.demo.QQBubbleActivity;
 import com.example.zhoumohan.luckymorning.demo.taobaoFirstPage.ShoppingActivity;
@@ -33,6 +34,8 @@ public class NewsFragment4 extends BaseFragment {
     Button btnQQ;
     @BindView(R.id.btn_map)
     Button btnMap;
+    @BindView(R.id.btn_photo)
+    Button btnPhoto;
 
     private static final int REQUEST_SCAN = 0;
     @Override
@@ -46,7 +49,7 @@ public class NewsFragment4 extends BaseFragment {
     }
 
 
-    @OnClick({R.id.iv_qr,R.id.btn_qq,R.id.btn_map,R.id.btn_vlayout})
+    @OnClick({R.id.iv_qr,R.id.btn_qq,R.id.btn_map,R.id.btn_dialog,R.id.btn_vlayout,R.id.btn_photo})
     void onClick(View view){
         switch (view.getId()){
             case R.id.iv_qr:
@@ -64,6 +67,9 @@ public class NewsFragment4 extends BaseFragment {
                 break;
             case R.id.btn_vlayout:
                 startActivity(new Intent(getActivity(), ShoppingActivity.class));
+                break;
+            case R.id.btn_photo:
+                startActivity(new Intent(getActivity(),ImageActivity.class));
                 break;
         }
 
