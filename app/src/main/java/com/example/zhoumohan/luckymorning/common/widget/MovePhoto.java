@@ -1,5 +1,6 @@
 package com.example.zhoumohan.luckymorning.common.widget;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -18,37 +20,49 @@ import com.example.zhoumohan.luckymorning.R;
 public class MovePhoto extends LinearLayout {
 
     private RecyclerView rv1,rv2,rv3;
-    private ImageView imageView;
+    private LinearLayout llContent;
     private Context context;
     public MovePhoto(Context context) {
         this(context,null);
     }
 
     public MovePhoto(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs,0);
+        this(context, attrs,0);
     }
 
     public MovePhoto(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
         init();
     }
 
     private void init(){
-        View.inflate(context,R.layout.move_view,this);
+        LayoutInflater.from(context).inflate(R.layout.move_view, this, true);
         rv1 = findViewById(R.id.rv_1);
         rv2 = findViewById(R.id.rv_2);
         rv3 = findViewById(R.id.rv_3);
-        imageView = findViewById(R.id.iv);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
-        rv1.setLayoutManager(linearLayoutManager);
+        llContent = findViewById(R.id.ll_content);
+
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
+        rv1.setLayoutManager(linearLayoutManager1);
         rv1.setAdapter(new ImageAdapter());
 
-        rv2.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
+        rv2.setLayoutManager(linearLayoutManager2);
         rv2.setAdapter(new ImageAdapter());
 
-        rv3.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
+        rv3.setLayoutManager(linearLayoutManager3);
         rv3.setAdapter(new ImageAdapter());
+
+        ObjectAnimator animator = ObjectAnimator.ofFloat(llContent,"rotation",0,30);
+        animator.setDuration(0);
+        animator.start();
+
+
+        rv1.smoothScrollToPosition(8);
+
 
     }
 

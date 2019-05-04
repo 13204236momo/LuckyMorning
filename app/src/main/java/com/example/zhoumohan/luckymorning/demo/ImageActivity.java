@@ -1,5 +1,6 @@
 package com.example.zhoumohan.luckymorning.demo;
 
+import android.animation.ObjectAnimator;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,18 +52,20 @@ public class ImageActivity extends AppCompatActivity {
 //                    .load(R.drawable.dog)
 //                    .asBitmap()
 //                    .into(holder.imageView);
+
+
         }
 
         @Override
         public int getItemCount() {
-            return 8;
+            return 1;
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
-            ImageView imageView;
+            MovePhoto movePhoto;
             public MyViewHolder(View itemView) {
                 super(itemView);
-                imageView = itemView.findViewById(R.id.iv);
+                movePhoto = findViewById(R.id.movephoto);
             }
         }
     }

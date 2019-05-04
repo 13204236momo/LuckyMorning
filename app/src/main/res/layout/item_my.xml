@@ -4,13 +4,9 @@
     android:layout_height="wrap_content">
 
     <com.example.zhoumohan.luckymorning.common.widget.MovePhoto
-        android:layout_width="150dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center" />
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
-
+        android:id="@+id/movephoto"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_blue_light"/>
 </FrameLayout>
